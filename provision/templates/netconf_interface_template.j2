@@ -1,0 +1,18 @@
+<config>
+  <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+    {% for interface in interfaces %}
+    <interface>
+      <name>{{interface.name}}{{interface.id}}</name>
+      <description>{{interface.description}}</description>
+      <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:{{interface.type}}</type>
+      <enabled>{{interface.enabled}}</enabled>
+      <ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip">
+        <address>
+          <ip>{{interface.ip}}</ip>
+          <netmask>{{interface.subnet}}</netmask>
+        </address>
+      </ipv4>
+    </interface>
+    {% endfor %}
+  </interfaces>
+</config>

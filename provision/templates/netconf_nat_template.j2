@@ -1,0 +1,43 @@
+<config>
+    <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+        <ip>
+		    <access-list>
+			    <standard xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-acl">
+					<name>{{nat.name}}</name>
+					<access-list-seq-rule>
+						<sequence>{{nat.seq}}</sequence>
+						<permit>
+							<std-ace>
+								<ipv4-prefix>{{nat.prefix}}</ipv4-prefix>
+								<mask>{{nat.wildcard}}</mask>
+							</std-ace>
+						</permit>
+					</access-list-seq-rule>
+				</standard>
+			</access-list>
+            <nat xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-nat">
+				<inside>
+					<source>
+						<list>
+							<id>{{nat.name}}</id>
+							<interface>
+								<{{nat.outside_type}}>{{nat.outside_index}}</{{nat.outside_type}}>
+							</interface>
+							<overload/>
+						</list>
+					</source>
+				</inside>
+			</nat>
+        </ip>
+			<interface>
+				<GigabitEthernet>
+					<name>1</name>
+					<ip>
+						<nat xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-nat">
+							<outside/>
+						</nat>
+					</ip>
+				</GigabitEthernet>
+			</interface>
+    </native>
+</config>

@@ -1,0 +1,108 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Task 1 - Where to get YANG Models
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+cd code
+open https://github.com/YangModels/yang
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Task 2 - Viewing Standard YANG Models
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+pyang -f tree ietf-interfaces.yang
+pyang -f tree cisco-platform-software.yang
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Task 3 - YANG Model Augmentation and Devisations
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+pyang -f tree ietf-ip.yang
+more cisco-xe-ietf-ip-deviation.yang
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Task 4 - YANG Data Models
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+python get_interfaces_yang.py
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Task 5 - Constructing RESTCONF URIs
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+curl -k -u vagrant:vagrant \
+  https://127.0.0.1:2225/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet2 \
+  -H 'Accept: application/yang-data+json' \
+  -H 'Content-Type: application/yang-data+json' \
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Task 6 - Content - XML or JSON
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+python get_interface_xml.py
+more get_interface_xml.py
+
+python get_interface_json.py
+more get_interface_json.py
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Task 7 - Retrieving Interface Configuration with Postman (GET)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Use the following values to fill in the Postman Client
+
+URL - https://127.0.0.1:2225/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet2
+Username - vagrant
+Password - vagrant
+Key 1 - Content-Type
+Key 2 - Accept
+Value - application/yang-data+json
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Task 8 - Modifying Configuration with Postman (PUT)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Use the following values to fill in the Postman Client
+
+URL - https://127.0.0.1:2225/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet2
+Username - vagrant
+Password - vagrant
+Key 1 - Content-Type
+Key 2 - Accept
+Value - application/yang-data+json
+Body - 
+{
+  "ietf-interfaces:interface": {
+    "name": "GigabitEthernet2",
+    "description": "**THIS IS NOT INTERFACE 2**",
+    "type": "iana-if-type:ethernetCsmacd"
+  }
+}
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Task 9 - Generating Python Code with Postman
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+touch make_python.py
+open make_python.py
+
+Use the following values to fill in the Postman Client
+
+URL - https://127.0.0.1:2225/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet2
+Username - vagrant
+Password - vagrant
+Key 1 - Content-Type
+Key 2 - Accept
+Value - application/yang-data+json
+
+REPLACE the line that starts with 'response =' with:
+response = requests.request("GET", url, headers=headers, verify=False)
+
+python make_python.py
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Task 10 - Lab Cleanup
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+cd ..
+./cleanup.sh
