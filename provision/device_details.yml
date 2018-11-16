@@ -1,0 +1,40 @@
+---
+devices:
+
+  - name: cl-latam
+    device_type: 'cisco_ios'
+    ip: '127.0.0.1'
+    username: 'vagrant'
+    password: 'vagrant'
+    netconf_port: 2223
+    ssh_port: 2222
+    interfaces:
+      - name: VirtualPortGroup
+        id: 0
+        enabled: "true"
+        description: "This is the NAT Interface"
+        ip: 192.168.35.1
+        subnet: 255.255.255.0
+        type: propVirtual
+      - name: GigabitEthernet
+        id: 2
+        description: "This is Interface 2"
+        enabled: "true"
+        ip: 172.16.20.1
+        subnet: 255.255.255.0
+        type: ethernetCsmacd
+      - name: GigabitEthernet
+        id: 3
+        description: "This is Interface 3"
+        enabled: "true"
+        ip: 192.168.185.1
+        subnet: 255.255.255.0
+        type: ethernetCsmacd
+    nat:
+      name: NAT_ACL
+      seq: 10
+      prefix: 192.168.0.0
+      wildcard: 0.255.255.255
+      outside_type: GigabitEthernet
+      outside_index: 1
+
