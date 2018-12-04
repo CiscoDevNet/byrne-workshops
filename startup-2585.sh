@@ -29,7 +29,7 @@ export PS1='\W$ '
 echo
 echo ***CREATING VIRTUAL ENVIRONMENT***
 echo
-virtualenv venv --python=$HOME/workspace/venv3/bin/python3
+virtualenv venv --python=$HOME/workspace/python/venv3/bin/python3
 
 echo
 echo ***STARTING VIRTUAL ENVIRONMENT***
