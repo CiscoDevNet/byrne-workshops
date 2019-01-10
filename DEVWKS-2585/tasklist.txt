@@ -13,7 +13,7 @@ pyang -f tree ietf-interfaces.yang
 pyang -f tree cisco-platform-software.yang
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Task 3 - YANG Model Augmentation and Devisations
+Task 3 - YANG Model Augmentation and Deviations
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 pyang -f tree ietf-ip.yang
@@ -96,7 +96,7 @@ Key 2 - Accept
 Value - application/yang-data+json
 
 REPLACE the line that starts with 'response =' with:
-response = requests.request("GET", url, headers=headers, verify=False)
+#
 
 python make_python.py
 
@@ -104,5 +104,5 @@ python make_python.py
 Task 10 - Lab Cleanup
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-cd ..
+cd ../..
 ./cleanup.sh
