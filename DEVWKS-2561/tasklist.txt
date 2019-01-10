@@ -2,7 +2,7 @@
 Task 1 - Where to get YANG Models
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-cd code
+cd DEVWKS-2561/code
 open https://github.com/YangModels/yang
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -34,28 +34,26 @@ import time
 
 
 # Read in the command_sets.yml file
-with open("command_sets.yml") as f:
+with open("provision/command_sets.yml") as f:
     commands = yaml.load(f.read())["commands"]
     initial_config = commands["initial_config"]
-    nat_vpg_config = commands["nat_config"]
-    guestshell_config = commands["guestshell_config"]
-    guestshell_enable = commands["guestshell_enable"]
+
 
 # Read in the entire YAML file for use in various templates
 print("Reading in Device Device Details")
-with open("device_details.yml") as f:
+with open("provision/device_details.yml") as f:
     device_details = yaml.load(f.read())
 
 # Create the NETCONF template for creating interfaces
 print("Setting Up NETCONF Templates")
-with open("templates/netconf_interface_template.j2") as f:
+with open("provision/templates/netconf_interface_template.j2") as f:
     interface_template = Template(f.read())
 
 # Create the NETCONF template for configuring NAT
 # The 'netconf_configs' directory must exist prior to running the script
 # The template will not allow for configuring NAT inside on the VirtualPortGroup - Pushed via Netmiko
-with open("templates/netconf_nat_template.j2") as f:
-    nat_template = Template(f.read())
+with open("provision/templates/netconf_nat_template.j2") as f:
+   nat_template = Template(f.read())
 
 # Creating various .xml configuraitons
 print("Creating Device Configurations")
@@ -64,15 +62,9 @@ for device in device_details["devices"]:
 
     # Creates interface .xml configuration
     print("Creating Interface Configurations from Templates")
-    with open("netconf_configs/{}_layer3.cfg".format(device["name"]), "w") as f:
+    with open("provision/netconf_configs/{}_layer3.cfg".format(device["name"]), "w") as f:
         int_config = interface_template.render(interfaces=device["interfaces"])
         f.write(int_config)
-
-    # Creates NAT .xml configuration
-    print("Creating NAT Configurations from Templates")
-    with open("netconf_configs/{}_nat.cfg".format(device["name"]), "w") as f:
-        nat_config = nat_template.render(nat=device["nat"])
-        f.write(nat_config)
 
 # Creating session details to be used by Netmiko. The intention is to reuse 'ch' for calling Netmiko sessions.
 for device in device_details["devices"]:
@@ -105,24 +97,3 @@ for device in device_details["devices"]:
             # Sending interface configurations to the router via NETCONF
             print("Sending Interface Configuration with Ncclient")
             interface_resp = m.edit_config(int_config, target = 'running')
-
-            # Without this sleep timer the remote device kicks back a an RPC error
-            print("Pausing 5 seconds for Ncclient")
-            time.sleep(5)
-
-            # Sending NAT configurations to the router via NETCONF
-            print("Sending NAT Configuration with Ncclient")
-            nat_resp = m.edit_config(nat_config, target = 'running')
-
-        # Sending CLI command to configure 'ip nat inside' on VirtualPortGroup due to lack of YANG model support
-        print("Sending Additional NAT Config with Netmiko")
-        nat_vpg_resp = ch.send_config_set((nat_vpg_config))
-
-        # Configuring Guestshell via CLI
-        print("Sending Guestshell Config Netmiko")
-        guestshell_resp = ch.send_config_set((guestshell_config))
-
-        # Enabling Guestshell
-        print("Enabling Guestshell Netmiko")
-        enable_gs_resp = ch.send_command((guestshell_enable))
-
