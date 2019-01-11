@@ -9,6 +9,15 @@ prepenv:
 		pip install -r requirements.txt; \
 )
 
+prepenv2:
+	@echo "*** Creating Virtual Environment ***"
+	( \
+		~/workspace/python/venv3/bin/python3 -m venv venv; \
+		source venv/bin/activate; \
+		~/workspace/python/venv3/bin/pip install --upgrade pip; \
+		~/workspace/pip install -r requirements.txt; \
+)
+
 vagrant:
 	@echo "*** Stopping Existing VMs ***"
 	vboxmanage list runningvms | sed -E 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} VBoxManage controlvm {} savestate
