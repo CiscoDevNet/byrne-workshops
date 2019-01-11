@@ -15,7 +15,7 @@ prepenv2:
 		~/workspace/python/venv3/bin/python3 -m venv venv; \
 		source venv/bin/activate; \
 		~/workspace/python/venv3/bin/pip install --upgrade pip; \
-		~/workspace/pip install -r requirements.txt; \
+		~/workspace/python/venv3/bin/pip install -r requirements.txt; \
 )
 
 vagrant:
