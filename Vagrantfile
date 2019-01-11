@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "iosxe/16.08.01"
+  config.vm.box = "iosxe/16.09.01"
 
   # IOS XE 16.7+ requires virtio for the network adapters.
   config.vm.network :private_network, virtualbox__intnet: "link1", auto_config: false, nic_type: "virtio"

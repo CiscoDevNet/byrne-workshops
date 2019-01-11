@@ -1,12 +1,13 @@
+#Makefile
+
 prepenv:
 	@echo "*** Creating Virtual Environment ***"
 	( \
-    	~/workspace/python/venv3/bin/python3 -m venv venv; \
-		source ./venv/bin/activate; \
-    	~/workspace/python/venv3/bin/pip3 install --upgrade pip; \
-    	~/workspace/python/venv3/bin/pip3 install -r requirements.txt; \
-	)
-
+		~/workspace/python/venv3/bin/python3 -m venv venv; \
+		source venv/bin/activate; \
+		pip install --upgrade pip; \
+		pip install -r requirements.txt; \
+)
 
 vagrant:
 	@echo "*** Stopping Existing VMs ***"
