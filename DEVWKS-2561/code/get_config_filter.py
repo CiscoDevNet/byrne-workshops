@@ -46,15 +46,15 @@ def main():
                          look_for_keys=False, allow_agent=False) as m:
 
         # In this example we will specify the filter to apply against the get_config query directly in the script.
-        hostname_filter = '''
+        hostname_filter =  '''
                             <filter>
-                              <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
-                                  <interface>
-                                     <name>GigabitEthernet2</name>
-                                  </interface>
-                              </interface>
+                                <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+                                    <interface>
+                                        <name>GigabitEthernet2</name>
+                                    </interface>
+                                </interfaces>
                             </filter>
-                          '''
+                            '''
         results = m.get_config('running', hostname_filter)
         print(xml.dom.minidom.parseString(results.xml).toprettyxml())
 

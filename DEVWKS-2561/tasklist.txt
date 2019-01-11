@@ -71,5 +71,4 @@ Task 8 - Clean Up
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 cd ../..
-./cleanup.sh
-
+make cleanup

@@ -2,7 +2,7 @@
 Task 1 - Where to get YANG Models
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-cd code
+cd DEVWKS-2585/code
 open https://github.com/YangModels/yang
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -39,13 +39,42 @@ Task 6 - Content - XML or JSON
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 python get_interface_xml.py
-more get_interface_xml.py
 
 python get_interface_json.py
+
+diff get_interface_xml.py get_interface_json.py
+
+more get_interface_xml.py
 more get_interface_json.py
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Task 7 - Retrieving Interface Configuration with Postman (GET)
+Task 7 - Retrieving the RESTCONF Root
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Use the following values to fill in the Postman Client
+
+URL - https://127.0.0.1:2225/.well-known/host-meta
+Username - vagrant
+Password - vagrant
+Key 1 - Content-Type
+Key 2 - Accept
+Value - application/yang-data+json
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Task 8 - Retrieving the Capability List
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Use the following values to fill in the Postman Client
+
+URL - https://127.0.0.1:2225/restconf/data/ietf-yang-library:modules-state
+Username - vagrant
+Password - vagrant
+Key 1 - Content-Type
+Key 2 - Accept
+Value - application/yang-data+json
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Task 9 - Retrieving Interface Configuration with Postman (GET)
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 Use the following values to fill in the Postman Client
@@ -59,7 +88,7 @@ Value - application/yang-data+json
 
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Task 8 - Modifying Configuration with Postman (PUT)
+Task 10 - Modifying Configuration with Postman (PUT)
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 Use the following values to fill in the Postman Client
@@ -70,7 +99,7 @@ Password - vagrant
 Key 1 - Content-Type
 Key 2 - Accept
 Value - application/yang-data+json
-Body - 
+Body -
 {
   "ietf-interfaces:interface": {
     "name": "GigabitEthernet2",
@@ -80,11 +109,11 @@ Body -
 }
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Task 9 - Generating Python Code with Postman
+Task 11 - Generating Python Code with Postman
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 touch make_python.py
-open make_python.py
+nano make_python.py
 
 Use the following values to fill in the Postman Client
 
@@ -96,13 +125,14 @@ Key 2 - Accept
 Value - application/yang-data+json
 
 REPLACE the line that starts with 'response =' with:
-#
+
+response = requests.request("GET", url, data=payload, headers=headers, verify=False)
 
 python make_python.py
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Task 10 - Lab Cleanup
+Task 12 - Lab Cleanup
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 cd ../..
-./cleanup.sh
+make cleanup

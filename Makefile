@@ -3,19 +3,10 @@
 prepenv:
 	@echo "*** Creating Virtual Environment ***"
 	( \
-		~/workspace/python/venv3/bin/python3 -m venv venv; \
+		python3 -m venv venv; \
 		source venv/bin/activate; \
 		pip install --upgrade pip; \
 		pip install -r requirements.txt; \
-)
-
-prepenv2:
-	@echo "*** Creating Virtual Environment ***"
-	( \
-		~/workspace/python/venv3/bin/python3 -m venv venv; \
-		source venv/bin/activate; \
-		~/workspace/python/venv3/bin/pip install --upgrade pip; \
-		~/workspace/python/venv3/bin/pip install -r requirements.txt; \
 )
 
 vagrant:
@@ -42,3 +33,8 @@ prep_2585:
 
 start_2561: vagrant provision_2561 prep_2561
 start_2585: vagrant provision_2585 prep_2585
+
+cleanup:
+	@echo "*** Destroying the Vagrant box ***"
+	vagrant destroy -f
+	rm DEVWKS-2585/code/make_python.py

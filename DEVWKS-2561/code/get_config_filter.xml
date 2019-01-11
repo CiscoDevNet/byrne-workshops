@@ -1,7 +1,7 @@
 <filter>
-  <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
-    <interface>
-      <name>GigabitEthernet2</name>
-    </interface>
-  </interface>
+    <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+        <interface>
+            <name>GigabitEthernet2</name>
+        </interface>
+    </interfaces>
 </filter>
