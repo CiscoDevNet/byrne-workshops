@@ -26,7 +26,16 @@ Task 4 - YANG Data Models
 python get_interfaces_yang.py
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Task 5 - Constructing RESTCONF URIs
+Task 5 - Retrieving the RESTCONF Root
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+curl -k -u vagrant:vagrant \
+  https://127.0.0.1:2225/.well-known/host-meta \
+  -H 'Accept: application/yang-data+json' \
+  -H 'Content-Type: application/yang-data+json' \
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Task 6 - Constructing RESTCONF URIs
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 curl -k -u vagrant:vagrant \
@@ -34,18 +43,6 @@ curl -k -u vagrant:vagrant \
   -H 'Accept: application/yang-data+json' \
   -H 'Content-Type: application/yang-data+json' \
 
-  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  Task 6 - Retrieving the RESTCONF Root
-  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-  Use the following values to fill in the Postman Client
-
-  URL - https://127.0.0.1:2225/.well-known/host-meta
-  Username - vagrant
-  Password - vagrant
-  Key 1 - Content-Type
-  Key 2 - Accept
-  Value - application/yang-data+json
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 Task 7 - Content - XML or JSON
