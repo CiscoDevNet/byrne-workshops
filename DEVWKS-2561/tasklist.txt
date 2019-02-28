@@ -13,13 +13,6 @@ pyang -f tree ietf-interfaces.yang
 pyang -f tree cisco-platform-software.yang
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Task 3 - YANG Model Augmentation and Deviations
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-pyang -f tree ietf-ip.yang
-more cisco-xe-ietf-ip-deviation.yang
-
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 Task 4 - YANG Data Models
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
