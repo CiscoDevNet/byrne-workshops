@@ -13,13 +13,6 @@ pyang -f tree ietf-interfaces.yang
 pyang -f tree cisco-platform-software.yang
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Task 3 - YANG Augmentation and Deviation
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-pyang -f tree ietf-ip.yang
-more cisco-xe-ietf-ip-deviation.yang
-
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 Task 4 - YANG Data Models
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -39,7 +32,7 @@ Task 6 - Constructing RESTCONF URIs
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 curl -k -u vagrant:vagrant \
-  https://127.0.0.1:2225/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet2 \
+  https://127.0.0.1:2225/restconf/data/interfaces/interface=GigabitEthernet2 \
   -H 'Accept: application/yang-data+json' \
   -H 'Content-Type: application/yang-data+json' \
 

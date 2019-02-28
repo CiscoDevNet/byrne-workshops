@@ -1,7 +1,7 @@
 ---
 devices:
 
-  - name: cl-latam
+  - name: clmel
     device_type: 'cisco_ios'
     ip: '127.0.0.1'
     username: 'vagrant'
@@ -30,5 +30,10 @@ devices:
         ip: 192.168.185.1
         subnet: 255.255.255.0
         type: ethernetCsmacd
-
-
+    nat:
+      name: NAT_ACL
+      seq: 10
+      prefix: 192.168.0.0
+      wildcard: 0.255.255.255
+      outside_type: GigabitEthernet
+      outside_index: 1

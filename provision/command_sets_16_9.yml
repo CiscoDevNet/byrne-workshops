@@ -1,0 +1,21 @@
+---
+
+commands:
+
+  initial_config:
+    - 'iox'
+  nat_config:
+    - 'interface VirtualPortGroup0'
+    - 'ip nat inside'
+  guestshell_config:
+    - 'app-hosting appid guestshell'
+    - 'app-vnic gateway0 virtualportgroup 0 guest-interface 0'
+    - 'guest-ipaddress 192.168.35.2 netmask 255.255.255.0'
+    - 'app-default-gateway 192.168.35.1 guest-interface 0'
+    - 'app-resource profile custom'
+    - 'cpu 1500'
+    - 'memory 512'
+    - 'name-server0 208.67.222.222'
+  guestshell_enable: 'guestshell enable'
+  ship:
+    - 'show ip int bri'
