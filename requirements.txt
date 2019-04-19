@@ -21,4 +21,4 @@ requests==2.20.0
 scp==0.11.0
 six==1.11.0
 textfsm==0.4.1
-urllib3==1.24.1
+urllib3==1.24.2
