@@ -1,7 +1,7 @@
 ---
 devices:
 
-  - name: clmel
+  - name: clus19
     device_type: 'cisco_ios'
     ip: '127.0.0.1'
     username: 'vagrant'
@@ -37,3 +37,29 @@ devices:
       wildcard: 0.255.255.255
       outside_type: GigabitEthernet
       outside_index: 1
+    acl_name: CISCO_LIVE_IN
+    acl_type: GigabitEthernet
+    acl_index: 1
+    aces:
+    - seq: 10
+      action: deny
+      protocol: icmp
+      src_prefix: 8.8.0.0
+      src_wildcard: 0.0.255.255
+      dst_prefix: "any"
+      dst_wildcard:
+      action: deny
+    - seq: 20
+      action: permit
+      protocol: icmp
+      src_prefix: 208.67.0.0
+      src_wildcard: 0.0.255.255
+      dst_prefix: "any"
+      dst_wildcard:
+    - seq: 30
+      action: permit_any
+
+
+
+
+

@@ -1,0 +1,61 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ip>
+      <access-list>
+        <extended xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-acl">
+            <name>{{ acl_name }}</name>
+            {% for ace in aces -%}
+            {% if ace.action == "deny" -%}
+            <access-list-seq-rule>
+               <sequence>{{ ace.seq }}</sequence>
+               <ace-rule>
+                    <action>deny</action>
+                    <protocol>{{ ace.protocol }}</protocol>
+                    <ipv4-address>{{ ace.src_prefix }}</ipv4-address>
+                    <mask>{{ ace.src_wildcard }}</mask>
+                    <dst-any/>
+               </ace-rule>
+            </access-list-seq-rule>
+          {% elif ace.action == "permit" -%}
+          <access-list-seq-rule>
+                <sequence>{{ ace.seq }}</sequence>
+                <ace-rule>
+                    <action>permit</action>
+                    <protocol>{{ ace.protocol }}</protocol>
+                    <ipv4-address>{{ ace.src_prefix }}</ipv4-address>
+                    <mask>{{ ace.src_wildcard }}</mask>
+                    <dst-any/>
+                </ace-rule>
+          </access-list-seq-rule>
+          {% elif ace.action == "permit_any" -%}
+          <access-list-seq-rule>
+                <sequence>{{ ace.seq }}</sequence>
+                <ace-rule>
+                    <action>permit</action>
+                    <protocol>ip</protocol>
+                    <any/>
+                    <dst-any/>
+                </ace-rule>
+          </access-list-seq-rule>
+          {% endif -%}
+          {% endfor -%}
+        </extended>
+      </access-list>
+    </ip>
+    <interface>
+	    <GigabitEthernet>
+		    <name>1</name>
+			<ip>
+			    <access-group>
+			        <in>
+					    <acl>
+						    <acl-name>CISCO_LIVE_IN</acl-name>
+							<in/>
+						</acl>
+					</in>
+				</access-group>
+			</ip>
+		</GigabitEthernet>
+    </interface>
+  </native>
+</config>

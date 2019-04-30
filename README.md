@@ -1,19 +1,13 @@
-# byrne-workshops
-This repository contains lab tasts and code in support of two Cisco Live DevNet Workshops.
+# Welcome
 
-DEVWKS-2561 - Hands on Exploration of NETCONF and YANG 
+This repo is to be used in conjunction with the DEVNET Workshops run by Bryan Byrne at Cisco Live. The current cycle is for #CLUS 2019 in San Diego California. Code contained within are for sessions:
 
-DEVWKS-2585 - Hands on Kicking the Tires of RESTCONF
+- [DEVWKS-1001 - Hands on Exploration of NETCONF and YANG](DEVWKS-1001/Guide/DEVWKS_1001_Intro.md)
+- DEVWKS-1512 - Becoming the Jinja Ninja: Using YAML and Jinja Templates to Create Reusable Code
+- DEVWKS-1695 - Introduction to GuestShell
+- [DEVWKS-2585 - Hands-On Kicking the Tires of RESTCONF](DEVWKS-2585/Guide/DEVWKS_2585_Intro.md)
 
-The individual sessions can be found in their respective sub directory. If you'd like to run the labs on your the Makefile will build your enviornment. The labs can be launched with
+Each session has a dedicated directory strutucture that contains all code examples covered in the workshop. 
 
-```
-make start-2561
-```
-or 
+With the exception of DEVWKS-1512 (Jinja Ninja) all labs require a target device to execute code against. In the case of Cisco Live the workstations will be provided with a Vagrant box of a CSR. Due to Cisco's software licensing restrictions I am unable to provide the Vagrant box. For details on building your own please see the DevNet Learning Lab "[Vagrant Up for Network Engineers](http://bit.ly/2HPlydE )."
 
-```
-make start-2585
-```
-
-The make files will attempt to bring up a vagrant image (not included in the repository), configure the router, and launch the Lab Guide.

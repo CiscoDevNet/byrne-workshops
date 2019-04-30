@@ -1,7 +1,0 @@
-.vagrant/
-venv
-*.pyc
-*.retry
-.DS_Store
-.idea/
-*.cfg
