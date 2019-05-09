@@ -1,0 +1,43 @@
+---
+devices:
+
+  - name: rtr_1
+    mgmt_ip: '10.10.10.10'
+    username: 'rtr1_user'
+    password: 'shh_secret'
+    interfaces:
+      - name: GigabitEthernet1
+        enabled: "true"
+        description: "Connected to RTR 1"
+        ip: 192.168.35.1
+        subnet: 255.255.255.252
+      - name: GigabitEthernet2
+        enabled: "false"
+        description: "To User Segment"
+        ip: 172.20.16.1
+        subnet: 255.255.255.0
+      - name: Loopback 100
+        enabled: "true"
+        description: "OSPF RID"
+        ip: 10.255.255.1
+        subnet: 255.255.255.255
+  - name: rtr_2
+    mgmt_ip: '20.20.20.20'
+    username: 'rtr2_user'
+    password: 'shh_secret'
+    interfaces:
+      - name: GigabitEthernet1
+        enabled: "true"
+        description: "Connected to RTR 1"
+        ip: 192.168.35.2
+        subnet: 255.255.255.252
+      - name: GigabitEthernet2
+        enabled: "true"
+        description: "To User Segment"
+        ip: 172.20.16.1
+        subnet: 255.255.255.0
+      - name: Loopback 100
+        enabled: "true"
+        description: "OSPF RID"
+        ip: 10.255.255.2
+        subnet: 255.255.255.255
