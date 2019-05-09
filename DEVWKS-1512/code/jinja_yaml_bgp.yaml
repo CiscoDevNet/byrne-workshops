@@ -1,0 +1,69 @@
+---
+
+devices:
+  - name: R1
+    asn: 64512
+    rid: 1.1.1.1
+    neighbor:
+      - peer_rtr: R3
+        peer_type: ebgp
+        peer_addr: 10.13.13.2
+        peer_asn: 65000
+        local_int: GigabitEthernet1
+      - peer_rtr: R4
+        peer_type: ebgp
+        peer_addr: 10.14.14.2
+        peer_asn: 65534
+        local_int: GigabitEthernet3
+      - peer_rtr: R2
+        peer_type: ibgp
+        peer_addr: 10.12.12.2
+        peer_asn: 64512
+        local_int: Loopback0
+  - name: R2
+    asn: 64512
+    rid: 2.2.2.2
+    neighbor:
+      - peer_rtr: R3
+        peer_type: ebgp
+        peer_addr: 10.13.13.2
+        peer_asn: 65000
+        local_int: GigabitEthernet1
+      - peer_rtr: R4
+        peer_type: ebgp
+        peer_addr: 10.14.14.2
+        peer_asn: 65534
+        local_int: GigabitEthernet3
+      - peer_rtr: R1
+        peer_type: ibgp
+        peer_addr: 10.12.12.1
+        peer_asn: 64512
+        local_int: Loopback100
+  - name: R3
+    asn: 65000
+    rid: 3.3.3.3
+    neighbor:
+      - peer_rtr: R1
+        peer_type: ebgp
+        peer_addr: 10.13.13.1
+        peer_asn: 64512
+        local_int: GigabitEthernet1
+      - peer_rtr: R2
+        peer_type: ebgp
+        peer_addr: 10.23.23.1
+        peer_asn: 64512
+        local_int: GigabitEthernet2
+  - name: R4
+    asn: 65534
+    rid: 4.4.4.4
+    neighbor:
+      - peer_rtr: R1
+        peer_type: ebgp
+        peer_addr: 10.14.14.1
+        peer_asn: 64512
+        local_int: GigabitEthernet1
+      - peer_rtr: R2
+        peer_type: ebgp
+        peer_addr: 10.24.24.1
+        peer_asn: 64512
+        local_int: GigabitEthernet2

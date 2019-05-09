@@ -1,0 +1,55 @@
+ {% else %}
+ neighbor {{ peer_addr }} remote-as {{ peer_asn }}
+ neighbor 10.5.255.9 update-source {{ peer_interface }}
+ {% endif %}
+  neighbor {{ peer_addr }} soft-reconfiguration inbound
+ !
+ address-family ipv4
+  redistribute connected route-map CON2BGP
+  neighbor {{ peer.peer_addr }} activate
+  neighbor {{ peer.peer_addr }} soft-reconfiguration inbound
+ exit-address-family
+
+
+
+
+  neighbor route-map FROM_{{ ans }}_to_{{ peer_asn }} out
+  neighbor route-map FROM_{{ peer_asn }}_to_{{ asn }} in
+
+
+
+    - peer: R3
+      peer_type: ebgp
+      peer_addr: 10.13.13.2
+      peer_asn: 65000
+      local_int: GigabitEthernet1
+    - peer: R4
+      peer_type: ebgp
+      peer_addr: 10.14.14.2
+      peer_asn: 65534
+      local_int: GigabitEthernet3
+    - peer: R2
+      peer_type: ibgp
+      peer_addr: 10.12.12.2
+      peer_asn: 64512
+      local_int: Loopback0
+
+
+
+
+
+      - peer: R3
+      peer_type: ebgp
+      peer_addr: 10.23.23.2
+      peer_asn: 65000
+      peer_int: GigabitEthernet1
+    - peer: R4
+      peer_type: ebgp
+      peer_addr: 10.24.24.2
+      peer_asn: 65534
+      peer_int: GigabitEthernet3
+    - peer: R2
+      peer_type: ibgp
+      peer_addr: 10.12.12.1
+      peer_asn: 64512
+      peer_int: Loopback0

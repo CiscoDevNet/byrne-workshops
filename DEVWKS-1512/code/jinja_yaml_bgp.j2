@@ -1,0 +1,23 @@
+
+router bgp {{ asn }}
+bgp router-id {{ rid }}
+bgp log-neighbor-changes
+{% for peer in neighbor -%}
+{% if peer.peer_type == "ibgp" -%}
+neighbor {{ peer.peer_addr }} remote-as {{ peer.peer_asn }}
+neighbor {{ peer.peer_addr }} update-source {{ peer.local_int }}
+{% else -%}
+neighbor {{ peer.peer_addr }} remote-as {{ peer.peer_asn }}
+{% endif -%}
+{% endfor -%}
+!
+address-family ipv4
+redistribute connected route-map CON2BGP
+{% for peer in neighbor -%}
+neighbor {{ peer.peer_addr }} activate
+neighbor {{ peer.peer_addr }} soft-reconfiguration inbound
+neighbor {{ peer.peer_addr }} route-map FROM_{{ name }}_to_{{ peer.peer_rtr }} out
+neighbor {{ peer.peer_addr }} route-map FROM_{{ peer.peer_rtr }}_to_{{ name }} in
+{% endfor -%}
+exit-address-family
+
