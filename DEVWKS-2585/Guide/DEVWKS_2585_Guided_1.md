@@ -15,7 +15,7 @@ You will copy this text and paste it into the terminal. For those that aren't fa
 Before we get started let's make sure our command prompt is set correctly and that we are in the correct directory
 
 ```
-cd DEVWKS-2585
+cd DEVWKS-2585/code
 export PS1='(venv)\W $ '
 ```
 

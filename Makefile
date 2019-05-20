@@ -15,37 +15,44 @@ vagrant:
 	@echo "*** Bringing Up the Router ***"
 	vagrant up
 
-provision_2561:
+provision_1001:
 	@echo "*** Configuring the Router ***"
-	provision/provision_gs.py -hn devnet2556
+	python provision/provision_lab.py -hn DEVWKS-1001
 
-prep_2561:
-	@echo "*** Opening the Task File ***"
-	open DEVWKS-2561/tasklist.txt
+prep_1001:
+	@echo "*** Opening the Lab Guide File ***"
+	open https://github.com/CiscoDevNet/byrne-workshops/blob/clus19/DEVWKS-1001/Guide/DEVWKS_1001_Guided_1.md
+
+provision_1512:
+	@echo "*** Configuring the Router ***"
+	python provision/provision_lab.py -hn DEVWKS-1512
+
+prep_1512:
+	@echo "*** Opening the Lab Guide File ***"
+	open https://github.com/CiscoDevNet/byrne-workshops/blob/clus19/DEVWKS-1512/Guide/DEVWKS_1512_Guided_1.md
+
+provision_1695:
+	@echo "*** Configuring the Router ***"
+	python provision/provision_lab.py -hn DEVWKS-1695
+
+prep_1695:
+	@echo "*** Opening the Lab Guide File ***"
+	open https://github.com/CiscoDevNet/byrne-workshops/blob/clus19/DEVWKS-1695/Guide/DEVWKS_1695_Guided_1.md
 
 provision_2585:
 	@echo "*** Configuring the Router ***"
-	provision/provision_gs.py -hn devnet2556
+	python provision/provision_lab.py -hn DEVWKS-2585
 
 prep_2585:
-	@echo "*** Opening the Task File ***"
-	open DEVWKS-2585/tasklist.txt
+	@echo "*** Opening the Lab Guide File ***"
+	open https://github.com/CiscoDevNet/byrne-workshops/blob/clus19/DEVWKS-2585/Guide/DEVWKS_2585_Guided_1.md
 
-provision_2556:
-	@echo "*** Configuring the Router ***"
-	provision/provision_gs.py -hn devnet2556
-
-prep_2556:
-	@echo "*** Opening the Task File ***"
-	open https://github.com/rshoemak/DevNet2556
-
-
-start_2561: vagrant provision_2561 prep_2561
+start_1001: vagrant provision_1001 prep_1001
+start_1512: vagrant provision_1512 prep_1512
+start_1695: vagrant provision_1695 prep_1695
 start_2585: vagrant provision_2585 prep_2585
-start_2556: vagrant provision_2556 prep_2556
-
 
 cleanup:
 	@echo "*** Destroying the Vagrant box ***"
 	vagrant destroy -f
-	rm DEVWKS-2585/code/make_python.py
+	rm ~/code/byrne-workshops/DEVWKS-2585/code/test_python.py

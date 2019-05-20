@@ -3,6 +3,7 @@
 Plase run the following command to reset your lab.
 
 ```
+cd ../..
 make cleanup
 ```
 
