@@ -65,4 +65,3 @@ python nc_verify_hostname.py
 
 ## [Return to the Table of Contents](../../README.md)
 
-

@@ -1,0 +1,519 @@
+{
+	"info": {
+		"_postman_id": "0bd09f17-460b-45f8-bb06-0bfac9ea9599",
+		"name": "DEVWKS-2585",
+		"description": "Base Examples for DEVWKS-2585",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Task 2",
+			"item": [
+				{
+					"name": "https://{{host}}:{{port}}/restconf/data/Cisco-IOS-XE-native:native/hostname",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/yang-data+json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/yang-data+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}:{{port}}/restconf/data/Cisco-IOS-XE-native:native/hostname",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"restconf",
+								"data",
+								"Cisco-IOS-XE-native:native",
+								"hostname"
+							]
+						},
+						"description": "DEVWKS-2585 Task 2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task 3",
+			"item": [
+				{
+					"name": "https://{{host}}:{{port}}/restconf/data/Cisco-IOS-XE-native:native/hostname",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/yang-data+xml",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/yang-data+xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}:{{port}}/restconf/data/Cisco-IOS-XE-native:native/hostname",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"restconf",
+								"data",
+								"Cisco-IOS-XE-native:native",
+								"hostname"
+							]
+						},
+						"description": "DEVWKS-2585 Task 3"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task 4",
+			"item": [
+				{
+					"name": "https://{{host}}:{{port}}/restconf/data/ietf-interfaces:interfaces-state/interface=GigabitEthernet1",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "{{content}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}:{{port}}/restconf/data/ietf-interfaces:interfaces-state/interface=GigabitEthernet1",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"restconf",
+								"data",
+								"ietf-interfaces:interfaces-state",
+								"interface=GigabitEthernet1"
+							]
+						},
+						"description": "DEVWKS-2585 Task 4"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task 5",
+			"item": [
+				{
+					"name": "https://{{host}}:{{port}}/restconf/data/ietf-interfaces:interfaces/",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "{{content}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "{{content}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ietf-interfaces:interface\": {\n    \"name\": \"Loopback100\",\n    \"description\": \"**Created at CLUS 2019**\",\n    \"type\": \"iana-if-type:softwareLoopback\"\n    }\n}\n\n"
+						},
+						"url": {
+							"raw": "https://{{host}}:{{port}}/restconf/data/ietf-interfaces:interfaces/",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"restconf",
+								"data",
+								"ietf-interfaces:interfaces",
+								""
+							]
+						},
+						"description": "DEVWKS-2585 Task 5 URI"
+					},
+					"response": []
+				},
+				{
+					"name": "https://{{host}}:{{port}}/restconf/data/ietf-interfaces:interfaces/interface=Loopback100",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "{{content}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}:{{port}}/restconf/data/ietf-interfaces:interfaces/interface=Loopback100",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"restconf",
+								"data",
+								"ietf-interfaces:interfaces",
+								"interface=Loopback100"
+							]
+						},
+						"description": "DEVWKS-2585 Task 5 Verify"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task 6",
+			"item": [
+				{
+					"name": "https://{{host}}:{{port}}/restconf/data/ietf-interfaces:interfaces/interface=Loopback100/ietf-ip:ipv4/",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "{{content}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ietf-ip:ipv4\": {\n        \"address\": [\n            {\n                \"ip\": \"10.20.30.1\",\n                \"netmask\": \"255.255.255.255\"\n            }\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}:{{port}}/restconf/data/ietf-interfaces:interfaces/interface=Loopback100/ietf-ip:ipv4/",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"restconf",
+								"data",
+								"ietf-interfaces:interfaces",
+								"interface=Loopback100",
+								"ietf-ip:ipv4",
+								""
+							]
+						},
+						"description": "DEVWKS-2585 Task 6 URI"
+					},
+					"response": []
+				},
+				{
+					"name": "https://{{host}}:{{port}}/restconf/data/ietf-interfaces:interfaces/interface=Loopback100",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "{{content}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}:{{port}}/restconf/data/ietf-interfaces:interfaces/interface=Loopback100",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"restconf",
+								"data",
+								"ietf-interfaces:interfaces",
+								"interface=Loopback100"
+							]
+						},
+						"description": "DEVWKS-2585 Task 6 Verify"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task 7",
+			"item": [
+				{
+					"name": "https://{{host}}:{{port}}/restconf/data/Cisco-IOS-XE-native:native/hostname",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "{{content}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"hostname\": \"CLUS2019\"\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}:{{port}}/restconf/data/Cisco-IOS-XE-native:native/hostname",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"restconf",
+								"data",
+								"Cisco-IOS-XE-native:native",
+								"hostname"
+							]
+						},
+						"description": "DEVWKS-2585 Task 7 Put"
+					},
+					"response": []
+				},
+				{
+					"name": "https://{{host}}:{{port}}/restconf/data/Cisco-IOS-XE-native:native/hostname",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "{{content}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}:{{port}}/restconf/data/Cisco-IOS-XE-native:native/hostname",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"restconf",
+								"data",
+								"Cisco-IOS-XE-native:native",
+								"hostname"
+							]
+						},
+						"description": "DEVWKS-2585 Task 7 Verify"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

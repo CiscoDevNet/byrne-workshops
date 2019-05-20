@@ -3,8 +3,8 @@
 This repo is to be used in conjunction with the DEVNET Workshops run by Bryan Byrne at Cisco Live. The current cycle is for #CLUS 2019 in San Diego California. Code contained within are for sessions:
 
 - [DEVWKS-1001 - Hands on Exploration of NETCONF and YANG](DEVWKS-1001/Guide/DEVWKS_1001_Intro.md)
-- DEVWKS-1512 - Becoming the Jinja Ninja: Using YAML and Jinja Templates to Create Reusable Code
-- DEVWKS-1695 - Introduction to GuestShell
+- [DEVWKS-1512 - Becoming the Jinja Ninja: Using YAML and Jinja Templates to Create Reusable Code](DEVWKS-1512/Guide/DEVWKS_1512_Intro.md)
+- [DEVWKS-1695 - Introduction to GuestShell](DEVWKS-1695/Guide/DEVWKS_1695_Intro.md)
 - [DEVWKS-2585 - Hands-On Kicking the Tires of RESTCONF](DEVWKS-2585/Guide/DEVWKS_2585_Intro.md)
 
 Each session has a dedicated directory strutucture that contains all code examples covered in the workshop. 
