@@ -10,7 +10,7 @@ Interesting text here
 You will copy this text and paste it into the terminal. For those that aren't familiar with MacOS here is a brief cheat sheet:
 
 ### Cut - ⌘ + c
-### Paste - ⌘ + c
+### Paste - ⌘ + v
 
 Before we get started let's make sure our command prompt is set correctly and that we are in the correct directory
 

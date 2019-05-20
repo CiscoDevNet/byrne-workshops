@@ -1,5 +1,30 @@
 #!/usr/bin/env python
 
+"""
+
+Copyright (c) 2019 Cisco and/or its affiliates.
+
+This software is licensed to you under the terms of the Cisco Sample
+Code License, Version 1.0 (the "License"). You may obtain a copy of the
+License at
+
+               https://developer.cisco.com/docs/licenses
+
+All use of the material herein must be in accordance with the terms of
+the License. All rights not expressly granted by the License are
+reserved. Unless required by applicable law or agreed to separately in
+writing, software distributed under the License is distributed on an "AS
+IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied.
+
+"""
+
+__author__ = "Bryan Byrne <brybyrne@cisco.com>"
+__contributors__ = [
+]
+__copyright__ = "Copyright (c) 2019 Cisco and/or its affiliates."
+__license__ = "Cisco Sample Code License, Version 1.0"
+
 from ncclient import manager
 import sys
 import xmltodict
@@ -44,6 +69,7 @@ def main():
                          device_params={'name': 'default'},
                          allow_agent=False, look_for_keys=False) as m:
 
+        # Use ncclient to retrieve the configruation matching the defined filer. Parse output.
         stage = m.get_config('running', FILTER)
         stage_desc = xmltodict.parse(stage.xml)["rpc-reply"]["data"]
         stage_conf = stage_desc["native"]
@@ -52,10 +78,11 @@ def main():
         print('****')
         print("Changing the Hostname Now")
 
-        # Retrieve the configuraiton and operation data
+        # Use ncclient to modify the configuration with the defined XML data.
         results = m.edit_config(PAYLOAD, target= 'running')
         print(results)
 
+        # Use ncclient to verify the changes were applied.
         verify = m.get_config('running', FILTER)
         verify_desc = xmltodict.parse(verify.xml)["rpc-reply"]["data"]
         verify_conf = verify_desc["native"]
