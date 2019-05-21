@@ -70,10 +70,6 @@ def main():
         results = m.get_config('running', INT_FILTER )
         # Print the output in a readable format
         print(xml.dom.minidom.parseString(results.xml).toprettyxml())
-        acl_name = acl_desc["access-lists"]["access-list"]
-        acl_match = acl_desc["access-lists"]["access-list"]["access-list-entries"]["access-list-entry"]
-
-
 
 
 if __name__ == '__main__':

@@ -58,7 +58,6 @@ python nc_xpath_nat.py
 
 ```
 python nc_edit_hostname.py
-python nc_verify_hostname.py
 ```
 
 ## [Moving on the Wrap Up!](DEVWKS_1001_Guided_3.md)
