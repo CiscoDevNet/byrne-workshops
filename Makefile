@@ -48,7 +48,7 @@ prep_2585:
 	open https://github.com/CiscoDevNet/byrne-workshops/blob/clus19/DEVWKS-2585/Guide/DEVWKS_2585_Guided_1.md
 
 start_1001: vagrant provision_1001 prep_1001
-start_1512: vagrant provision_1512 prep_1512
+start_1512: prep_1512
 start_1695: vagrant provision_1695 prep_1695
 start_2585: vagrant provision_2585 prep_2585
 

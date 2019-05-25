@@ -1,24 +1,24 @@
 {% for input in inputs %}
-Interface {{ input.interface }}
-{% if input.mode == "trunk" %}
+interface {{ input.interface }}
+{% if input.mode == "trunk" -%}
 switchport mode {{ input.mode }}
 switchport trunk allowed vlan {{ input.allowed }}
-Spanning-tree portfast mode trunk
-{% elif input.mode == "access" %}
-Switchport mode {{ input.mode }}
-Switchport access vlan {{ input.vlan }}
-Spanning-tree portfast
-{% else %}
+spanning-tree portfast mode trunk
+{% elif input.mode == "access" -%}
+switchport mode {{ input.mode }}
+switchport access vlan {{ input.vlan }}
+spanning-tree portfast
+{% else -%}
 no switchport
-IP address {{ input.address }} {{ input.mask }}
-{% endif %}
-
-{% if input.enabled == "true" %}
+ip address {{ input.address }} {{ input.mask }}
+{% endif -%}
+{% if input.enabled == "true" -%}
 no shutdown
-{% elif input.enabled != "true" %}
+{% else -%}
 shutdown
-{% else %}
-{% endif %}
-{% endfor %}
+{% endif -%}
+{% endfor -%}
+
+
 
 
