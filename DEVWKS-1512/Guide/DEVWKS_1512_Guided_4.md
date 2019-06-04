@@ -2,7 +2,7 @@
 
 #### Task 1: Quick Look at the Topology
 
-![Toplogy](jinja_yaml_topology.png)
+![Topology](jinja_yaml_topology.png)
 
 
 #### Task 2: Inspecting the Python

@@ -1,8 +1,8 @@
 # Welcome to Cisco Live San Diego!
 
-In this session **Introduction to GuestShell** we will walk through a series of exercises to introduce GuestShell a virtualized Linux-based environment, designed to run custom Linxus applications, including Python for automated control and management of Cisco devices.
+In this session **Introduction to GuestShell** we will walk through a series of exercises to introduce GuestShell a virtualized Linux-based environment, designed to run custom Linux applications, including Python for automated control and management of Cisco devices.
 
-In this lab we will be working direclty on a CSR router. As we proceed through the lab guide all commands will be provided for you to cut and paste to limit the potential for *'User Created Issues'* in the lab.
+In this lab we will be working directly on a CSR router. As we proceed through the lab guide all commands will be provided for you to cut and paste to limit the potential for *'User Created Issues'* in the lab.
 
 When you see a box that looks like this:
 

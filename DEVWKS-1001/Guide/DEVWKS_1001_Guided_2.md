@@ -23,22 +23,22 @@ pyang -f tree cisco-platform-software.yang
 python generate_traffic.py &
 ```
 
-#### Task 1 - Retreiving Device Configuraiton with NETCONF
+#### Task 1 - Retrieving Device Configuraiton with NETCONF
 ```
 python nc_get-config_full.py
 ```
 
-#### Task 2 - Retreiving Specific Configuraiton Details with NETCONF
+#### Task 2 - Retrieving Specific Configuraiton Details with NETCONF
 ```
 python nc_get-config_int.py
 ```
 
-#### Task 3 - Retreiving Operational Details wiht NETCONF
+#### Task 3 - Retrieving Operational Details with NETCONF
 
 ```
 python nc_get_nat.py
 ```
-#### Task 4 - Retreiving A Specific XPATH
+#### Task 4 - Retrieving A Specific XPATH
 
 ```
 python generate_traffic_xpath.py &

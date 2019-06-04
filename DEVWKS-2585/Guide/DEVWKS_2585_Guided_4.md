@@ -36,7 +36,7 @@ Open the file:
 open -a TextEdit test_python.py 
 ```
 1. Past the contents of your buffer into the open file.
-2. On the line that starts with **payload** replace <<INSERT TEXT HERE>> with a new hostanme. **NOTE: The rules for creating hostnames still apply!**
+2. On the line that starts with **payload** replace <<INSERT TEXT HERE>> with a new hostname. **NOTE: The rules for creating hostnames still apply!**
 3. Replace the line that starts with **response** with:
 
 ```
