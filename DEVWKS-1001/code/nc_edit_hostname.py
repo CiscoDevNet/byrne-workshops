@@ -69,7 +69,7 @@ def main():
                          device_params={'name': 'default'},
                          allow_agent=False, look_for_keys=False) as m:
 
-        # Use ncclient to retrieve the configruation matching the defined filer. Parse output.
+        # Use ncclient to retrieve the configuration matching the defined filter. Parse output.
         stage = m.get_config('running', FILTER)
         stage_desc = xmltodict.parse(stage.xml)["rpc-reply"]["data"]
         stage_conf = stage_desc["native"]
